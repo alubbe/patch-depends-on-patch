@@ -1,0 +1,872 @@
+diff --git a/lib/chart.js b/lib/chart.js
+index a9a57cf89..ac85af256 100644
+--- a/lib/chart.js
++++ b/lib/chart.js
+@@ -12,6 +12,10 @@ var _react = require('react');
+
+ var _react2 = _interopRequireDefault(_react);
+
++var _propTypes = require('prop-types');
++
++var _propTypes2 = _interopRequireDefault(_propTypes);
++
+ var _reactD3Core = require('react-d3-core');
+
+ var _commonProps = require('./commonProps');
+@@ -32,39 +36,39 @@ var ChartSvg = function (_Component) {
+   function ChartSvg(props) {
+     _classCallCheck(this, ChartSvg);
+
+-    return _possibleConstructorReturn(this, Object.getPrototypeOf(ChartSvg).call(this, props));
++    return _possibleConstructorReturn(this, (ChartSvg.__proto__ || Object.getPrototypeOf(ChartSvg)).call(this, props));
+   }
+
+   _createClass(ChartSvg, [{
+     key: 'render',
+     value: function render() {
+-      var _props = this.props;
+-      var horizontal = _props.horizontal;
+-      var height = _props.height;
+-      var width = _props.width;
+-      var margins = _props.margins;
+-      var xScale = _props.xScale;
+-      var yScale = _props.yScale;
+-      var xRange = _props.xRange;
+-      var yRange = _props.yRange;
+-      var xDomain = _props.xDomain;
+-      var yDomain = _props.yDomain;
+-      var xTicks = _props.xTicks;
+-      var yTicks = _props.yTicks;
+-      var xTickFormat = _props.xTickFormat;
+-      var yTickFormat = _props.yTickFormat;
+-      var xBandPaddingInner = _props.xBandPaddingInner;
+-      var xBandPaddingOuter = _props.xBandPaddingOuter;
+-      var yBandPaddingInner = _props.yBandPaddingInner;
+-      var yBandPaddingOuter = _props.yBandPaddingOuter;
+-      var xLabel = _props.xLabel;
+-      var yLabel = _props.yLabel;
+-      var stack = _props.stack;
+-      var data = _props.data;
+-      var svgClassName = _props.svgClassName;
+-      var id = _props.id;
+-      var x = _props.x;
+-      var y = _props.y;
++      var _props = this.props,
++          horizontal = _props.horizontal,
++          height = _props.height,
++          width = _props.width,
++          margins = _props.margins,
++          xScale = _props.xScale,
++          yScale = _props.yScale,
++          xRange = _props.xRange,
++          yRange = _props.yRange,
++          xDomain = _props.xDomain,
++          yDomain = _props.yDomain,
++          xTicks = _props.xTicks,
++          yTicks = _props.yTicks,
++          xTickFormat = _props.xTickFormat,
++          yTickFormat = _props.yTickFormat,
++          xBandPaddingInner = _props.xBandPaddingInner,
++          xBandPaddingOuter = _props.xBandPaddingOuter,
++          yBandPaddingInner = _props.yBandPaddingInner,
++          yBandPaddingOuter = _props.yBandPaddingOuter,
++          xLabel = _props.xLabel,
++          yLabel = _props.yLabel,
++          stack = _props.stack,
++          data = _props.data,
++          svgClassName = _props.svgClassName,
++          id = _props.id,
++          x = _props.x,
++          y = _props.y;
+
+
+       var xRange = xRange || [0, width - margins.left - margins.right];
+@@ -158,10 +162,10 @@ ChartSvg.defaultProps = _extends({
+   svgClassName: 'react-d3-core__container_svg'
+ }, _commonProps2.default);
+ ChartSvg.propTypes = {
+-  id: _react.PropTypes.string,
+-  width: _react.PropTypes.number.isRequired,
+-  height: _react.PropTypes.number.isRequired,
+-  margins: _react.PropTypes.object.isRequired,
+-  svgClassName: _react.PropTypes.string.isRequired
++  id: _propTypes2.default.string,
++  width: _propTypes2.default.number.isRequired,
++  height: _propTypes2.default.number.isRequired,
++  margins: _propTypes2.default.object.isRequired,
++  svgClassName: _propTypes2.default.string.isRequired
+ };
+ exports.default = ChartSvg;
+\ No newline at end of file
+diff --git a/lib/chartpie.js b/lib/chartpie.js
+index 769781e87..64a2c1f6a 100644
+--- a/lib/chartpie.js
++++ b/lib/chartpie.js
+@@ -12,6 +12,10 @@ var _react = require('react');
+
+ var _react2 = _interopRequireDefault(_react);
+
++var _propTypes = require('prop-types');
++
++var _propTypes2 = _interopRequireDefault(_propTypes);
++
+ var _reactD3Core = require('react-d3-core');
+
+ var _commonProps = require('./commonProps');
+@@ -32,7 +36,7 @@ var ChartSvg = function (_Component) {
+   function ChartSvg(props) {
+     _classCallCheck(this, ChartSvg);
+
+-    return _possibleConstructorReturn(this, Object.getPrototypeOf(ChartSvg).call(this, props));
++    return _possibleConstructorReturn(this, (ChartSvg.__proto__ || Object.getPrototypeOf(ChartSvg)).call(this, props));
+   }
+
+   _createClass(ChartSvg, [{
+@@ -40,15 +44,15 @@ var ChartSvg = function (_Component) {
+     value: function render() {
+       var _this2 = this;
+
+-      var _props = this.props;
+-      var height = _props.height;
+-      var width = _props.width;
+-      var margins = _props.margins;
+-      var data = _props.data;
+-      var svgClassName = _props.svgClassName;
+-      var id = _props.id;
+-      var name = _props.name;
+-      var value = _props.value;
++      var _props = this.props,
++          height = _props.height,
++          width = _props.width,
++          margins = _props.margins,
++          data = _props.data,
++          svgClassName = _props.svgClassName,
++          id = _props.id,
++          name = _props.name,
++          value = _props.value;
+
+
+       var children = _react2.default.Children.map(this.props.children, function (el) {
+@@ -84,10 +88,10 @@ ChartSvg.defaultProps = _extends({
+   svgClassName: 'react-d3-core__container_svg'
+ }, _commonProps2.default);
+ ChartSvg.propTypes = {
+-  id: _react.PropTypes.string,
+-  width: _react.PropTypes.number.isRequired,
+-  height: _react.PropTypes.number.isRequired,
+-  margins: _react.PropTypes.object.isRequired,
+-  svgClassName: _react.PropTypes.string.isRequired
++  id: _propTypes2.default.string,
++  width: _propTypes2.default.number.isRequired,
++  height: _propTypes2.default.number.isRequired,
++  margins: _propTypes2.default.object.isRequired,
++  svgClassName: _propTypes2.default.string.isRequired
+ };
+ exports.default = ChartSvg;
+\ No newline at end of file
+diff --git a/lib/components/area.js b/lib/components/area.js
+index b924b24f9..4a40e785a 100644
+--- a/lib/components/area.js
++++ b/lib/components/area.js
+@@ -36,15 +36,15 @@ var Area = function (_Component) {
+   function Area(props) {
+     _classCallCheck(this, Area);
+
+-    return _possibleConstructorReturn(this, Object.getPrototypeOf(Area).call(this, props));
++    return _possibleConstructorReturn(this, (Area.__proto__ || Object.getPrototypeOf(Area)).call(this, props));
+   }
+
+   _createClass(Area, [{
+     key: '_mkArea',
+     value: function _mkArea() {
+-      var _props = this.props;
+-      var areaClassName = _props.areaClassName;
+-      var areaOpacity = _props.areaOpacity;
++      var _props = this.props,
++          areaClassName = _props.areaClassName,
++          areaOpacity = _props.areaOpacity;
+
+
+       var dataset = (0, _series.series)(this.props);
+@@ -67,11 +67,11 @@ var Area = function (_Component) {
+   }, {
+     key: '_setAxes',
+     value: function _setAxes(data) {
+-      var _props2 = this.props;
+-      var height = _props2.height;
+-      var margins = _props2.margins;
+-      var xScaleSet = _props2.xScaleSet;
+-      var yScaleSet = _props2.yScaleSet;
++      var _props2 = this.props,
++          height = _props2.height,
++          margins = _props2.margins,
++          xScaleSet = _props2.xScaleSet,
++          yScaleSet = _props2.yScaleSet;
+
+
+       var area = _d3Shape2.default.area().x(function (d) {
+diff --git a/lib/components/area_stack.js b/lib/components/area_stack.js
+index 9e1ef38bf..4bcd8a75e 100644
+--- a/lib/components/area_stack.js
++++ b/lib/components/area_stack.js
+@@ -40,7 +40,7 @@ var AreaStack = function (_Component) {
+   function AreaStack(props) {
+     _classCallCheck(this, AreaStack);
+
+-    return _possibleConstructorReturn(this, Object.getPrototypeOf(AreaStack).call(this, props));
++    return _possibleConstructorReturn(this, (AreaStack.__proto__ || Object.getPrototypeOf(AreaStack)).call(this, props));
+   }
+
+   _createClass(AreaStack, [{
+@@ -101,9 +101,9 @@ var AreaStack = function (_Component) {
+   }, {
+     key: '_setAxes',
+     value: function _setAxes() {
+-      var _props = this.props;
+-      var xScaleSet = _props.xScaleSet;
+-      var yScaleSet = _props.yScaleSet;
++      var _props = this.props,
++          xScaleSet = _props.xScaleSet,
++          yScaleSet = _props.yScaleSet;
+
+
+       return _d3Shape2.default.area().x(function (d) {
+diff --git a/lib/components/bar.js b/lib/components/bar.js
+index ca9df1f12..3dbe0347e 100644
+--- a/lib/components/bar.js
++++ b/lib/components/bar.js
+@@ -26,7 +26,7 @@ var Bar = function (_Component) {
+   function Bar(props) {
+     _classCallCheck(this, Bar);
+
+-    return _possibleConstructorReturn(this, Object.getPrototypeOf(Bar).call(this, props));
++    return _possibleConstructorReturn(this, (Bar.__proto__ || Object.getPrototypeOf(Bar)).call(this, props));
+   }
+
+   _createClass(Bar, [{
+@@ -49,13 +49,13 @@ var Bar = function (_Component) {
+     value: function _mkBar() {
+       var _this2 = this;
+
+-      var _props = this.props;
+-      var height = _props.height;
+-      var width = _props.width;
+-      var margins = _props.margins;
+-      var barClassName = _props.barClassName;
+-      var xScaleSet = _props.xScaleSet;
+-      var yScaleSet = _props.yScaleSet;
++      var _props = this.props,
++          height = _props.height,
++          width = _props.width,
++          margins = _props.margins,
++          barClassName = _props.barClassName,
++          xScaleSet = _props.xScaleSet,
++          yScaleSet = _props.yScaleSet;
+
+
+       var that = this;
+diff --git a/lib/components/bar_group.js b/lib/components/bar_group.js
+index 4e38c8a8d..8462bd0b5 100644
+--- a/lib/components/bar_group.js
++++ b/lib/components/bar_group.js
+@@ -30,7 +30,7 @@ var BarGroup = function (_Component) {
+   function BarGroup(props) {
+     _classCallCheck(this, BarGroup);
+
+-    return _possibleConstructorReturn(this, Object.getPrototypeOf(BarGroup).call(this, props));
++    return _possibleConstructorReturn(this, (BarGroup.__proto__ || Object.getPrototypeOf(BarGroup)).call(this, props));
+   }
+
+   _createClass(BarGroup, [{
+@@ -48,12 +48,12 @@ var BarGroup = function (_Component) {
+     value: function _mkBarGroup(dom) {
+       var _this2 = this;
+
+-      var _props = this.props;
+-      var height = _props.height;
+-      var margins = _props.margins;
+-      var barClassName = _props.barClassName;
+-      var xScaleSet = _props.xScaleSet;
+-      var yScaleSet = _props.yScaleSet;
++      var _props = this.props,
++          height = _props.height,
++          margins = _props.margins,
++          barClassName = _props.barClassName,
++          xScaleSet = _props.xScaleSet,
++          yScaleSet = _props.yScaleSet;
+
+
+       var that = this;
+diff --git a/lib/components/bar_group_horizontal.js b/lib/components/bar_group_horizontal.js
+index 89a006349..bf6855b24 100644
+--- a/lib/components/bar_group_horizontal.js
++++ b/lib/components/bar_group_horizontal.js
+@@ -30,7 +30,7 @@ var BarGroupHorizontal = function (_Component) {
+   function BarGroupHorizontal(props) {
+     _classCallCheck(this, BarGroupHorizontal);
+
+-    return _possibleConstructorReturn(this, Object.getPrototypeOf(BarGroupHorizontal).call(this, props));
++    return _possibleConstructorReturn(this, (BarGroupHorizontal.__proto__ || Object.getPrototypeOf(BarGroupHorizontal)).call(this, props));
+   }
+
+   _createClass(BarGroupHorizontal, [{
+@@ -48,14 +48,14 @@ var BarGroupHorizontal = function (_Component) {
+     value: function _mkBarGroup() {
+       var _this2 = this;
+
+-      var _props = this.props;
+-      var height = _props.height;
+-      var margins = _props.margins;
+-      var barClassName = _props.barClassName;
+-      var xScaleSet = _props.xScaleSet;
+-      var yScaleSet = _props.yScaleSet;
+-      var onMouseOut = _props.onMouseOut;
+-      var onMouseOver = _props.onMouseOver;
++      var _props = this.props,
++          height = _props.height,
++          margins = _props.margins,
++          barClassName = _props.barClassName,
++          xScaleSet = _props.xScaleSet,
++          yScaleSet = _props.yScaleSet,
++          onMouseOut = _props.onMouseOut,
++          onMouseOver = _props.onMouseOver;
+
+
+       var that = this;
+diff --git a/lib/components/bar_horizontal.js b/lib/components/bar_horizontal.js
+index b14fd3621..dbb16f7fd 100644
+--- a/lib/components/bar_horizontal.js
++++ b/lib/components/bar_horizontal.js
+@@ -26,7 +26,7 @@ var BarHorizontal = function (_Component) {
+   function BarHorizontal(props) {
+     _classCallCheck(this, BarHorizontal);
+
+-    return _possibleConstructorReturn(this, Object.getPrototypeOf(BarHorizontal).call(this, props));
++    return _possibleConstructorReturn(this, (BarHorizontal.__proto__ || Object.getPrototypeOf(BarHorizontal)).call(this, props));
+   }
+
+   _createClass(BarHorizontal, [{
+@@ -44,12 +44,12 @@ var BarHorizontal = function (_Component) {
+     value: function _mkBar(dom) {
+       var _this2 = this;
+
+-      var _props = this.props;
+-      var height = _props.height;
+-      var margins = _props.margins;
+-      var barClassName = _props.barClassName;
+-      var xScaleSet = _props.xScaleSet;
+-      var yScaleSet = _props.yScaleSet;
++      var _props = this.props,
++          height = _props.height,
++          margins = _props.margins,
++          barClassName = _props.barClassName,
++          xScaleSet = _props.xScaleSet,
++          yScaleSet = _props.yScaleSet;
+
+
+       var that = this;
+diff --git a/lib/components/bar_stack.js b/lib/components/bar_stack.js
+index 3adc7156b..603baf905 100644
+--- a/lib/components/bar_stack.js
++++ b/lib/components/bar_stack.js
+@@ -30,7 +30,7 @@ var BarStack = function (_Component) {
+   function BarStack(props) {
+     _classCallCheck(this, BarStack);
+
+-    return _possibleConstructorReturn(this, Object.getPrototypeOf(BarStack).call(this, props));
++    return _possibleConstructorReturn(this, (BarStack.__proto__ || Object.getPrototypeOf(BarStack)).call(this, props));
+   }
+
+   _createClass(BarStack, [{
+@@ -53,13 +53,13 @@ var BarStack = function (_Component) {
+     value: function _mkBarStack() {
+       var _this2 = this;
+
+-      var _props = this.props;
+-      var height = _props.height;
+-      var margins = _props.margins;
+-      var barClassName = _props.barClassName;
+-      var xScaleSet = _props.xScaleSet;
+-      var yScaleSet = _props.yScaleSet;
+-      var barWidth = _props.barWidth;
++      var _props = this.props,
++          height = _props.height,
++          margins = _props.margins,
++          barClassName = _props.barClassName,
++          xScaleSet = _props.xScaleSet,
++          yScaleSet = _props.yScaleSet,
++          barWidth = _props.barWidth;
+
+
+       var that = this;
+diff --git a/lib/components/bar_stack_horizontal.js b/lib/components/bar_stack_horizontal.js
+index 1619afb62..a43e57d88 100644
+--- a/lib/components/bar_stack_horizontal.js
++++ b/lib/components/bar_stack_horizontal.js
+@@ -30,7 +30,7 @@ var BarStackHorizontal = function (_Component) {
+   function BarStackHorizontal(props) {
+     _classCallCheck(this, BarStackHorizontal);
+
+-    return _possibleConstructorReturn(this, Object.getPrototypeOf(BarStackHorizontal).call(this, props));
++    return _possibleConstructorReturn(this, (BarStackHorizontal.__proto__ || Object.getPrototypeOf(BarStackHorizontal)).call(this, props));
+   }
+
+   _createClass(BarStackHorizontal, [{
+@@ -48,13 +48,13 @@ var BarStackHorizontal = function (_Component) {
+     value: function _mkBarStack(dom) {
+       var _this2 = this;
+
+-      var _props = this.props;
+-      var height = _props.height;
+-      var margins = _props.margins;
+-      var barClassName = _props.barClassName;
+-      var xScaleSet = _props.xScaleSet;
+-      var yScaleSet = _props.yScaleSet;
+-      var barWidth = _props.barWidth;
++      var _props = this.props,
++          height = _props.height,
++          margins = _props.margins,
++          barClassName = _props.barClassName,
++          xScaleSet = _props.xScaleSet,
++          yScaleSet = _props.yScaleSet,
++          barWidth = _props.barWidth;
+
+
+       var that = this;
+diff --git a/lib/components/blank_chart.js b/lib/components/blank_chart.js
+index ffa19a7b3..114eb187a 100644
+--- a/lib/components/blank_chart.js
++++ b/lib/components/blank_chart.js
+@@ -41,7 +41,7 @@ var BlankChart = function (_Component) {
+ 	function BlankChart(props) {
+ 		_classCallCheck(this, BlankChart);
+
+-		return _possibleConstructorReturn(this, Object.getPrototypeOf(BlankChart).call(this, props));
++		return _possibleConstructorReturn(this, (BlankChart.__proto__ || Object.getPrototypeOf(BlankChart)).call(this, props));
+ 	}
+
+ 	_createClass(BlankChart, [{
+@@ -60,15 +60,15 @@ var BlankChart = function (_Component) {
+ 	}, {
+ 		key: 'render',
+ 		value: function render() {
+-			var _props = this.props;
+-			var width = _props.width;
+-			var height = _props.height;
+-			var margins = _props.margins;
+-			var showXGrid = _props.showXGrid;
+-			var showYGrid = _props.showYGrid;
+-			var xDomain = _props.xDomain;
+-			var noDataTitleText = _props.noDataTitleText;
+-			var yTicks = _props.yTicks;
++			var _props = this.props,
++			    width = _props.width,
++			    height = _props.height,
++			    margins = _props.margins,
++			    showXGrid = _props.showXGrid,
++			    showYGrid = _props.showYGrid,
++			    xDomain = _props.xDomain,
++			    noDataTitleText = _props.noDataTitleText,
++			    yTicks = _props.yTicks;
+
+
+ 			var xgrid, ygrid, textXMargin, textYMargin;
+diff --git a/lib/components/brush.js b/lib/components/brush.js
+index 0bd7c719f..491446f1f 100644
+--- a/lib/components/brush.js
++++ b/lib/components/brush.js
+@@ -38,7 +38,7 @@ var Brush = function (_Component) {
+ 	function Brush(props) {
+ 		_classCallCheck(this, Brush);
+
+-		var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Brush).call(this, props));
++		var _this = _possibleConstructorReturn(this, (Brush.__proto__ || Object.getPrototypeOf(Brush)).call(this, props));
+
+ 		_this.state = {
+ 			xBrushScaleSet: _this._mkXScale(props)
+@@ -49,10 +49,10 @@ var Brush = function (_Component) {
+ 	_createClass(Brush, [{
+ 		key: '_mkXScale',
+ 		value: function _mkXScale(props) {
+-			var xScale = props.xScale;
+-			var xRange = props.xRange;
+-			var xDomain = props.xDomain;
+-			var xRangeRoundBands = props.xRangeRoundBands;
++			var xScale = props.xScale,
++			    xRange = props.xRange,
++			    xDomain = props.xDomain,
++			    xRangeRoundBands = props.xRangeRoundBands;
+
+
+ 			var newXScale = {
+@@ -86,16 +86,16 @@ var Brush = function (_Component) {
+ 		value: function _updateBrush() {
+ 			var _this2 = this;
+
+-			var _state = this.state;
+-			var xBrushScaleSet = _state.xBrushScaleSet;
+-			var yBrushScaleSet = _state.yBrushScaleSet;
+-			var _props = this.props;
+-			var height = _props.height;
+-			var margins = _props.margins;
+-			var brushExtent = _props.brushExtent;
+-			var keepBrushOn = _props.keepBrushOn;
+-			var onBrushDomainChange = _props.onBrushDomainChange;
+-			var brushStyle = _props.brushStyle;
++			var _state = this.state,
++			    xBrushScaleSet = _state.xBrushScaleSet,
++			    yBrushScaleSet = _state.yBrushScaleSet;
++			var _props = this.props,
++			    height = _props.height,
++			    margins = _props.margins,
++			    brushExtent = _props.brushExtent,
++			    keepBrushOn = _props.keepBrushOn,
++			    onBrushDomainChange = _props.onBrushDomainChange,
++			    brushStyle = _props.brushStyle;
+
+ 			// create d3 svg bursh with xDaomin values
+
+diff --git a/lib/components/line.js b/lib/components/line.js
+index 2fd6ac773..bfbc730e2 100644
+--- a/lib/components/line.js
++++ b/lib/components/line.js
+@@ -36,7 +36,7 @@ var Line = function (_Component) {
+   function Line(props) {
+     _classCallCheck(this, Line);
+
+-    return _possibleConstructorReturn(this, Object.getPrototypeOf(Line).call(this, props));
++    return _possibleConstructorReturn(this, (Line.__proto__ || Object.getPrototypeOf(Line)).call(this, props));
+   }
+
+   _createClass(Line, [{
+@@ -65,9 +65,9 @@ var Line = function (_Component) {
+   }, {
+     key: '_setAxes',
+     value: function _setAxes(data) {
+-      var _props = this.props;
+-      var xScaleSet = _props.xScaleSet;
+-      var yScaleSet = _props.yScaleSet;
++      var _props = this.props,
++          xScaleSet = _props.xScaleSet,
++          yScaleSet = _props.yScaleSet;
+
+
+       var line = _d3Shape2.default.line().x(function (d) {
+diff --git a/lib/components/multi_line_brush.js b/lib/components/multi_line_brush.js
+index 4002f261d..5b24424f4 100644
+--- a/lib/components/multi_line_brush.js
++++ b/lib/components/multi_line_brush.js
+@@ -12,6 +12,10 @@ var _react = require('react');
+
+ var _react2 = _interopRequireDefault(_react);
+
++var _propTypes = require('prop-types');
++
++var _propTypes2 = _interopRequireDefault(_propTypes);
++
+ var _reactD3Core = require('react-d3-core');
+
+ var _line = require('./line');
+@@ -61,7 +65,7 @@ var MultiLineBrushChart = function (_Component) {
+ 	function MultiLineBrushChart(props) {
+ 		_classCallCheck(this, MultiLineBrushChart);
+
+-		return _possibleConstructorReturn(this, Object.getPrototypeOf(MultiLineBrushChart).call(this, props));
++		return _possibleConstructorReturn(this, (MultiLineBrushChart.__proto__ || Object.getPrototypeOf(MultiLineBrushChart)).call(this, props));
+ 	}
+
+ 	_createClass(MultiLineBrushChart, [{
+@@ -70,18 +74,18 @@ var MultiLineBrushChart = function (_Component) {
+ 			// if there is no data render Blank chart
+ 			if (!(this.props.data && this.props.data.length > 0)) return _react2.default.createElement(_blank_chart2.default, this.props);
+
+-			var _props = this.props;
+-			var width = _props.width;
+-			var height = _props.height;
+-			var margins = _props.margins;
+-			var data = _props.data;
+-			var chartSeries = _props.chartSeries;
+-			var showXGrid = _props.showXGrid;
+-			var showYGrid = _props.showYGrid;
+-			var showLegend = _props.showLegend;
+-			var categoricalColors = _props.categoricalColors;
+-			var isBrushable = _props.isBrushable;
+-			var chartClassName = _props.chartClassName;
++			var _props = this.props,
++			    width = _props.width,
++			    height = _props.height,
++			    margins = _props.margins,
++			    data = _props.data,
++			    chartSeries = _props.chartSeries,
++			    showXGrid = _props.showXGrid,
++			    showYGrid = _props.showYGrid,
++			    showLegend = _props.showLegend,
++			    categoricalColors = _props.categoricalColors,
++			    isBrushable = _props.isBrushable,
++			    chartClassName = _props.chartClassName;
+
+
+ 			var xgrid, ygrid;
+@@ -142,10 +146,10 @@ MultiLineBrushChart.defaultProps = _extends({
+ 	isBrushable: false
+ }, _commonProps2.default);
+ MultiLineBrushChart.propTypes = {
+-	width: _react.PropTypes.number.isRequired,
+-	height: _react.PropTypes.number.isRequired,
+-	margins: _react.PropTypes.object.isRequired,
+-	data: _react.PropTypes.array.isRequired,
+-	chartSeries: _react.PropTypes.array.isRequired
++	width: _propTypes2.default.number.isRequired,
++	height: _propTypes2.default.number.isRequired,
++	margins: _propTypes2.default.object.isRequired,
++	data: _propTypes2.default.array.isRequired,
++	chartSeries: _propTypes2.default.array.isRequired
+ };
+ exports.default = MultiLineBrushChart;
+\ No newline at end of file
+diff --git a/lib/components/pie.js b/lib/components/pie.js
+index 7eb9a231a..ead0ccfb4 100644
+--- a/lib/components/pie.js
++++ b/lib/components/pie.js
+@@ -32,7 +32,7 @@ var Pie = function (_Component) {
+   function Pie(props) {
+     _classCallCheck(this, Pie);
+
+-    return _possibleConstructorReturn(this, Object.getPrototypeOf(Pie).call(this, props));
++    return _possibleConstructorReturn(this, (Pie.__proto__ || Object.getPrototypeOf(Pie)).call(this, props));
+   }
+
+   _createClass(Pie, [{
+@@ -48,12 +48,12 @@ var Pie = function (_Component) {
+   }, {
+     key: 'mkSeries',
+     value: function mkSeries() {
+-      var _props = this.props;
+-      var data = _props.data;
+-      var chartSeries = _props.chartSeries;
+-      var value = _props.value;
+-      var name = _props.name;
+-      var categoricalColors = _props.categoricalColors;
++      var _props = this.props,
++          data = _props.data,
++          chartSeries = _props.chartSeries,
++          value = _props.value,
++          name = _props.name,
++          categoricalColors = _props.categoricalColors;
+
+
+       var chartSeriesData = chartSeries.map(function (f, i) {
+@@ -80,15 +80,15 @@ var Pie = function (_Component) {
+     value: function _mkPie() {
+       var _this2 = this;
+
+-      var _props2 = this.props;
+-      var width = _props2.width;
+-      var height = _props2.height;
+-      var innerRadius = _props2.innerRadius;
+-      var outerRadius = _props2.outerRadius;
+-      var pieSort = _props2.pieSort;
+-      var value = _props2.value;
+-      var radius = _props2.radius;
+-      var pieTextShow = _props2.pieTextShow;
++      var _props2 = this.props,
++          width = _props2.width,
++          height = _props2.height,
++          innerRadius = _props2.innerRadius,
++          outerRadius = _props2.outerRadius,
++          pieSort = _props2.pieSort,
++          value = _props2.value,
++          radius = _props2.radius,
++          pieTextShow = _props2.pieTextShow;
+
+
+       var that = this;
+@@ -152,10 +152,10 @@ var Pie = function (_Component) {
+   }, {
+     key: 'render',
+     value: function render() {
+-      var _props3 = this.props;
+-      var width = _props3.width;
+-      var height = _props3.height;
+-      var margins = _props3.margins;
++      var _props3 = this.props,
++          width = _props3.width,
++          height = _props3.height,
++          margins = _props3.margins;
+
+
+       var t = 'translate(' + (width - margins.left - margins.right) / 2 + ',  ' + (height - margins.top - margins.bottom) / 2 + ')';
+diff --git a/lib/components/scatter.js b/lib/components/scatter.js
+index d4252429c..1b80cd36d 100644
+--- a/lib/components/scatter.js
++++ b/lib/components/scatter.js
+@@ -30,19 +30,19 @@ var Scatter = function (_Component) {
+   function Scatter(props) {
+     _classCallCheck(this, Scatter);
+
+-    return _possibleConstructorReturn(this, Object.getPrototypeOf(Scatter).call(this, props));
++    return _possibleConstructorReturn(this, (Scatter.__proto__ || Object.getPrototypeOf(Scatter)).call(this, props));
+   }
+
+   _createClass(Scatter, [{
+     key: '_mkScatter',
+     value: function _mkScatter(dataset) {
+-      var _props = this.props;
+-      var scatterClassName = _props.scatterClassName;
+-      var defaultSymbol = _props.defaultSymbol;
+-      var defaultSymbolSize = _props.defaultSymbolSize;
+-      var brushSymbol = _props.brushSymbol;
+-      var xScaleSet = _props.xScaleSet;
+-      var yScaleSet = _props.yScaleSet;
++      var _props = this.props,
++          scatterClassName = _props.scatterClassName,
++          defaultSymbol = _props.defaultSymbol,
++          defaultSymbolSize = _props.defaultSymbolSize,
++          brushSymbol = _props.brushSymbol,
++          xScaleSet = _props.xScaleSet,
++          yScaleSet = _props.yScaleSet;
+
+       // for building symbols in brush, set to circle and size to 4
+
+diff --git a/lib/utils/rectangle.js b/lib/utils/rectangle.js
+index 0665e50f3..c9e1f049a 100644
+--- a/lib/utils/rectangle.js
++++ b/lib/utils/rectangle.js
+@@ -10,6 +10,10 @@ var _react = require('react');
+
+ var _react2 = _interopRequireDefault(_react);
+
++var _propTypes = require('prop-types');
++
++var _propTypes2 = _interopRequireDefault(_propTypes);
++
+ var _reactDom = require('react-dom');
+
+ var _reactDom2 = _interopRequireDefault(_reactDom);
+@@ -31,7 +35,7 @@ var Rect = function (_Component) {
+ 	function Rect(props) {
+ 		_classCallCheck(this, Rect);
+
+-		return _possibleConstructorReturn(this, Object.getPrototypeOf(Rect).call(this, props));
++		return _possibleConstructorReturn(this, (Rect.__proto__ || Object.getPrototypeOf(Rect)).call(this, props));
+ 	}
+
+ 	_createClass(Rect, [{
+@@ -48,11 +52,11 @@ var Rect = function (_Component) {
+ 	}, {
+ 		key: 'drawRectangle',
+ 		value: function drawRectangle() {
+-			var _props = this.props;
+-			var width = _props.width;
+-			var height = _props.height;
+-			var margins = _props.margins;
+-			var styleClassName = _props.styleClassName;
++			var _props = this.props,
++			    width = _props.width,
++			    height = _props.height,
++			    margins = _props.margins,
++			    styleClassName = _props.styleClassName;
+
+
+ 			this.rectangle = d3.select(_reactDom2.default.findDOMNode(this.refs.Rect)).append("rect").attr("x", 0).attr("y", -5).attr("width", width - margins.left - margins.right).attr("height", height - margins.bottom - margins.top + 3).attr("class", styleClassName);
+@@ -74,9 +78,9 @@ var Rect = function (_Component) {
+ }(_react.Component);
+
+ Rect.propTypes = {
+-	height: _react.PropTypes.number.isRequired,
+-	width: _react.PropTypes.number.isRequired,
+-	margins: _react.PropTypes.object.isRequired,
+-	styleClassName: _react.PropTypes.string.isRequired
++	height: _propTypes2.default.number.isRequired,
++	width: _propTypes2.default.number.isRequired,
++	margins: _propTypes2.default.object.isRequired,
++	styleClassName: _propTypes2.default.string.isRequired
+ };
+ exports.default = Rect;
+\ No newline at end of file
+diff --git a/lib/utils/series.js b/lib/utils/series.js
+index f9ca4cc17..0a228249a 100644
+--- a/lib/utils/series.js
++++ b/lib/utils/series.js
+@@ -12,11 +12,11 @@ var _d2 = _interopRequireDefault(_d);
+ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+ function series(props, horizontal) {
+-  var data = props.data;
+-  var chartSeries = props.chartSeries;
+-  var x = props.x;
+-  var y = props.y;
+-  var categoricalColors = props.categoricalColors;
++  var data = props.data,
++      chartSeries = props.chartSeries,
++      x = props.x,
++      y = props.y,
++      categoricalColors = props.categoricalColors;
+
+
+   categoricalColors = categoricalColors || _d2.default.scale.category10();
+diff --git a/lib/utils/straightLine.js b/lib/utils/straightLine.js
+index 7f407e0f3..4e09a005e 100644
+--- a/lib/utils/straightLine.js
++++ b/lib/utils/straightLine.js
+@@ -31,7 +31,7 @@ var StraightLine = function (_Component) {
+ 	function StraightLine(props) {
+ 		_classCallCheck(this, StraightLine);
+
+-		return _possibleConstructorReturn(this, Object.getPrototypeOf(StraightLine).call(this, props));
++		return _possibleConstructorReturn(this, (StraightLine.__proto__ || Object.getPrototypeOf(StraightLine)).call(this, props));
+ 	}
+
+ 	_createClass(StraightLine, [{
+@@ -48,13 +48,13 @@ var StraightLine = function (_Component) {
+ 	}, {
+ 		key: 'getLine',
+ 		value: function getLine() {
+-			var _props = this.props;
+-			var x1 = _props.x1;
+-			var x2 = _props.x2;
+-			var y1 = _props.y1;
+-			var y2 = _props.y2;
+-			var width = _props.width;
+-			var height = _props.height;
++			var _props = this.props,
++			    x1 = _props.x1,
++			    x2 = _props.x2,
++			    y1 = _props.y1,
++			    y2 = _props.y2,
++			    width = _props.width,
++			    height = _props.height;
+
+
+ 			this.line = d3.select(_reactDom2.default.findDOMNode(this.refs.StLine)).append("line").attr("x1", x1).attr("y1", y1).attr("x2", x2).attr("y2", y2);
+diff --git a/package.json b/package.json
+index e9efa8469..081b34dde 100644
+--- a/package.json
++++ b/package.json
+@@ -34,20 +34,21 @@
+     "json-loader": "^0.5.3",
+     "react-bootstrap": "^0.28.3",
+     "react-router": "^2.0.0",
++    "prop-types": "15.6.1",
+     "style-loader": "^0.12.4",
+     "webpack": "^1.12.2",
+     "webpack-dev-middleware": "^1.5.1",
+     "webpack-dev-server": "^1.11.0",
+-    "webpack-hot-middleware": "^2.9.0"
+-  },
+-  "peerDependencies": {
++    "webpack-hot-middleware": "^2.9.0",
+     "react": "^0.14.7",
+     "react-dom": "^0.14.7"
+   },
+   "dependencies": {
+     "d3": "^3.5.6",
+     "d3-scale": "^0.6.4",
+-    "d3-shape": "^0.5.1",
+-    "react-d3-core": "^1.2.8"
++    "d3-shape": "^0.5.1"
++  },
++  "peerDependencies": {
++    "react-d3-core": "^1.3.9"
+   }
+ }

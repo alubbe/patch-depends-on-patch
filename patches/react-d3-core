@@ -1,0 +1,917 @@
+diff --git a/lib/axis/axis.js b/lib/axis/axis.js
+index 7a10f3816..19ca0c6d4 100644
+--- a/lib/axis/axis.js
++++ b/lib/axis/axis.js
+@@ -10,6 +10,10 @@ var _react = require('react');
+
+ var _react2 = _interopRequireDefault(_react);
+
++var _propTypes = require('prop-types');
++
++var _propTypes2 = _interopRequireDefault(_propTypes);
++
+ var _d3Axis = require('d3-axis');
+
+ var _d3Axis2 = _interopRequireDefault(_d3Axis);
+@@ -38,21 +42,21 @@ var Axis = function (_Component) {
+   function Axis(props) {
+     _classCallCheck(this, Axis);
+
+-    return _possibleConstructorReturn(this, Object.getPrototypeOf(Axis).call(this, props));
++    return _possibleConstructorReturn(this, (Axis.__proto__ || Object.getPrototypeOf(Axis)).call(this, props));
+   }
+
+   _createClass(Axis, [{
+     key: '_mkTickAxis',
+     value: function _mkTickAxis() {
+-      var _props = this.props;
+-      var type = _props.type;
+-      var tickOrient = _props.tickOrient;
+-      var tickFormat = _props.tickFormat;
+-      var tickPadding = _props.tickPadding;
+-      var tickSizeInner = _props.tickSizeInner;
+-      var tickSizeOuter = _props.tickSizeOuter;
+-      var ticks = _props.ticks;
+-      var tickValues = _props.tickValues;
++      var _props = this.props,
++          type = _props.type,
++          tickOrient = _props.tickOrient,
++          tickFormat = _props.tickFormat,
++          tickPadding = _props.tickPadding,
++          tickSizeInner = _props.tickSizeInner,
++          tickSizeOuter = _props.tickSizeOuter,
++          ticks = _props.ticks,
++          tickValues = _props.tickValues;
+
+
+       var func = _d3Axis2.default;
+@@ -95,14 +99,14 @@ var Axis = function (_Component) {
+   }, {
+     key: 'render',
+     value: function render() {
+-      var _props2 = this.props;
+-      var showAxis = _props2.showAxis;
+-      var gridAxisClassName = _props2.gridAxisClassName;
+-      var axisClassName = _props2.axisClassName;
+-      var type = _props2.type;
+-      var style = _props2.style;
+-      var axisStyling = _props2.axisStyling;
+-      var gridStyleClassName = _props2.gridStyleClassName;
++      var _props2 = this.props,
++          showAxis = _props2.showAxis,
++          gridAxisClassName = _props2.gridAxisClassName,
++          axisClassName = _props2.axisClassName,
++          type = _props2.type,
++          style = _props2.style,
++          axisStyling = _props2.axisStyling,
++          gridStyleClassName = _props2.gridStyleClassName;
+
+
+       var axisGroup = _reactFauxDom2.default.createElement('g');
+@@ -169,9 +173,9 @@ Axis.defaultProps = {
+   tickOrient: null
+ };
+ Axis.PropTypes = {
+-  showAxis: _react.PropTypes.bool,
+-  type: _react.PropTypes.string,
+-  orient: _react.PropTypes.oneOf(['top', 'bottom', 'left', 'right']),
+-  tickOrient: _react.PropTypes.oneOf(['top', 'bottom', 'left', 'right'])
++  showAxis: _propTypes2.default.bool,
++  type: _propTypes2.default.string,
++  orient: _propTypes2.default.oneOf(['top', 'bottom', 'left', 'right']),
++  tickOrient: _propTypes2.default.oneOf(['top', 'bottom', 'left', 'right'])
+ };
+ exports.default = Axis;
+\ No newline at end of file
+diff --git a/lib/axis/label.js b/lib/axis/label.js
+index a95267795..a0711fd6c 100644
+--- a/lib/axis/label.js
++++ b/lib/axis/label.js
+@@ -12,6 +12,10 @@ var _react = require('react');
+
+ var _react2 = _interopRequireDefault(_react);
+
++var _propTypes = require('prop-types');
++
++var _propTypes2 = _interopRequireDefault(_propTypes);
++
+ var _d3Selection = require('d3-selection');
+
+ var _d3Selection2 = _interopRequireDefault(_d3Selection);
+@@ -38,22 +42,22 @@ var Label = function (_Component) {
+   function Label(props) {
+     _classCallCheck(this, Label);
+
+-    return _possibleConstructorReturn(this, Object.getPrototypeOf(Label).call(this, props));
++    return _possibleConstructorReturn(this, (Label.__proto__ || Object.getPrototypeOf(Label)).call(this, props));
+   }
+
+   _createClass(Label, [{
+     key: '_mkLabel',
+     value: function _mkLabel(dom) {
+-      var _props = this.props;
+-      var height = _props.height;
+-      var width = _props.width;
+-      var margins = _props.margins;
+-      var labelOffset = _props.labelOffset;
+-      var labelTitle = _props.labelTitle;
+-      var labelPosition = _props.labelPosition;
+-      var vTransform = _props.vTransform;
+-      var hTransform = _props.hTransform;
+-      var textAnchor = _props.textAnchor;
++      var _props = this.props,
++          height = _props.height,
++          width = _props.width,
++          margins = _props.margins,
++          labelOffset = _props.labelOffset,
++          labelTitle = _props.labelTitle,
++          labelPosition = _props.labelPosition,
++          vTransform = _props.vTransform,
++          hTransform = _props.hTransform,
++          textAnchor = _props.textAnchor;
+
+
+       var labelDom = _d3Selection2.default.select(dom);
+@@ -105,15 +109,15 @@ Label.defaultProps = _extends({
+   labelClassName: 'react-d3-core__label'
+ }, _commonProps2.default);
+ Label.propTypes = {
+-  height: _react.PropTypes.number.isRequired,
+-  width: _react.PropTypes.number.isRequired,
+-  margins: _react.PropTypes.object.isRequired,
+-  hTransform: _react.PropTypes.string,
+-  vTransform: _react.PropTypes.string,
+-  labelTitle: _react.PropTypes.string,
+-  labelPosition: _react.PropTypes.oneOf(['top', 'bottom', 'left', 'right']),
+-  labelOffset: _react.PropTypes.number,
+-  textAnchor: _react.PropTypes.string,
+-  labelClassName: _react.PropTypes.string
++  height: _propTypes2.default.number.isRequired,
++  width: _propTypes2.default.number.isRequired,
++  margins: _propTypes2.default.object.isRequired,
++  hTransform: _propTypes2.default.string,
++  vTransform: _propTypes2.default.string,
++  labelTitle: _propTypes2.default.string,
++  labelPosition: _propTypes2.default.oneOf(['top', 'bottom', 'left', 'right']),
++  labelOffset: _propTypes2.default.number,
++  textAnchor: _propTypes2.default.string,
++  labelClassName: _propTypes2.default.string
+ };
+ exports.default = Label;
+\ No newline at end of file
+diff --git a/lib/axis/xaxis.js b/lib/axis/xaxis.js
+index 07d60fc7d..089f8a34a 100644
+--- a/lib/axis/xaxis.js
++++ b/lib/axis/xaxis.js
+@@ -12,6 +12,10 @@ var _react = require('react');
+
+ var _react2 = _interopRequireDefault(_react);
+
++var _propTypes = require('prop-types');
++
++var _propTypes2 = _interopRequireDefault(_propTypes);
++
+ var _axis = require('./axis');
+
+ var _axis2 = _interopRequireDefault(_axis);
+@@ -38,37 +42,37 @@ var Xaxis = function (_Component) {
+   function Xaxis(props) {
+     _classCallCheck(this, Xaxis);
+
+-    return _possibleConstructorReturn(this, Object.getPrototypeOf(Xaxis).call(this, props));
++    return _possibleConstructorReturn(this, (Xaxis.__proto__ || Object.getPrototypeOf(Xaxis)).call(this, props));
+   }
+
+   _createClass(Xaxis, [{
+     key: 'render',
+     value: function render() {
+-      var _props = this.props;
+-      var height = _props.height;
+-      var width = _props.width;
+-      var margins = _props.margins;
+-      var showXAxis = _props.showXAxis;
+-      var x = _props.x;
+-      var xAxisClassName = _props.xAxisClassName;
+-      var xDomain = _props.xDomain;
+-      var xRange = _props.xRange;
+-      var xBandPaddingInner = _props.xBandPaddingInner;
+-      var xBandPaddingOuter = _props.xBandPaddingOuter;
+-      var xScale = _props.xScale;
+-      var xOrient = _props.xOrient;
+-      var xTickOrient = _props.xTickOrient;
+-      var xTickPadding = _props.xTickPadding;
+-      var xTickSizeOuter = _props.xTickSizeOuter;
+-      var xTickSizeInner = _props.xTickSizeInner;
+-      var xTickFormat = _props.xTickFormat;
+-      var xTicks = _props.xTicks;
+-      var xLabel = _props.xLabel;
+-      var xLabelPosition = _props.xLabelPosition;
+-      var labelOffset = _props.labelOffset;
+-      var style = _props.style;
+-      var xAxisStyling = _props.xAxisStyling;
+-      var xTickValues = _props.xTickValues;
++      var _props = this.props,
++          height = _props.height,
++          width = _props.width,
++          margins = _props.margins,
++          showXAxis = _props.showXAxis,
++          x = _props.x,
++          xAxisClassName = _props.xAxisClassName,
++          xDomain = _props.xDomain,
++          xRange = _props.xRange,
++          xBandPaddingInner = _props.xBandPaddingInner,
++          xBandPaddingOuter = _props.xBandPaddingOuter,
++          xScale = _props.xScale,
++          xOrient = _props.xOrient,
++          xTickOrient = _props.xTickOrient,
++          xTickPadding = _props.xTickPadding,
++          xTickSizeOuter = _props.xTickSizeOuter,
++          xTickSizeInner = _props.xTickSizeInner,
++          xTickFormat = _props.xTickFormat,
++          xTicks = _props.xTicks,
++          xLabel = _props.xLabel,
++          xLabelPosition = _props.xLabelPosition,
++          labelOffset = _props.labelOffset,
++          style = _props.style,
++          xAxisStyling = _props.xAxisStyling,
++          xTickValues = _props.xTickValues;
+
+
+       var t;
+@@ -146,32 +150,32 @@ Xaxis.defaultProps = _extends({
+   xOuterTickSize: 6
+ }, _commonProps2.default);
+ Xaxis.propTypes = {
+-  height: _react.PropTypes.number.isRequired,
+-  width: _react.PropTypes.number.isRequired,
+-  margins: _react.PropTypes.object.isRequired,
+-  showXAxis: _react.PropTypes.bool,
+-  x: _react.PropTypes.func,
+-  xDomain: _react.PropTypes.array,
+-  xRange: _react.PropTypes.array,
+-  xScale: _react.PropTypes.string.isRequired,
+-  xOrient: _react.PropTypes.oneOf(['top', 'bottom']),
+-  xTickOrient: _react.PropTypes.oneOf(['top', 'bottom']),
+-  xAxisClassName: _react.PropTypes.string,
+-  xTickSizeInner: _react.PropTypes.number,
+-  xTickSizeOuter: _react.PropTypes.number,
+-  xBandPaddingInner: _react.PropTypes.number,
+-  xBandPaddingOuter: _react.PropTypes.number,
+-  xTickPadding: _react.PropTypes.number,
+-  xTickFormat: _react.PropTypes.func,
+-  xTicks: _react.PropTypes.array,
+-  style: _react.PropTypes.object,
++  height: _propTypes2.default.number.isRequired,
++  width: _propTypes2.default.number.isRequired,
++  margins: _propTypes2.default.object.isRequired,
++  showXAxis: _propTypes2.default.bool,
++  x: _propTypes2.default.func,
++  xDomain: _propTypes2.default.array,
++  xRange: _propTypes2.default.array,
++  xScale: _propTypes2.default.string.isRequired,
++  xOrient: _propTypes2.default.oneOf(['top', 'bottom']),
++  xTickOrient: _propTypes2.default.oneOf(['top', 'bottom']),
++  xAxisClassName: _propTypes2.default.string,
++  xTickSizeInner: _propTypes2.default.number,
++  xTickSizeOuter: _propTypes2.default.number,
++  xBandPaddingInner: _propTypes2.default.number,
++  xBandPaddingOuter: _propTypes2.default.number,
++  xTickPadding: _propTypes2.default.number,
++  xTickFormat: _propTypes2.default.func,
++  xTicks: _propTypes2.default.array,
++  style: _propTypes2.default.object,
+   /*
+    xAxisStyling object holds css styling classes for axis elements
+    pathClassName: "someCls"
+    ticksClassName: "someCls"
+    textClassName: "someCls"
+    */
+-  xAxisStyling: _react.PropTypes.object,
+-  xTickValues: _react.PropTypes.array
++  xAxisStyling: _propTypes2.default.object,
++  xTickValues: _propTypes2.default.array
+ };
+ exports.default = Xaxis;
+\ No newline at end of file
+diff --git a/lib/axis/yaxis.js b/lib/axis/yaxis.js
+index fda0ded2f..7efac561d 100644
+--- a/lib/axis/yaxis.js
++++ b/lib/axis/yaxis.js
+@@ -12,6 +12,10 @@ var _react = require('react');
+
+ var _react2 = _interopRequireDefault(_react);
+
++var _propTypes = require('prop-types');
++
++var _propTypes2 = _interopRequireDefault(_propTypes);
++
+ var _axis = require('./axis');
+
+ var _axis2 = _interopRequireDefault(_axis);
+@@ -38,37 +42,37 @@ var Yaxis = function (_Component) {
+   function Yaxis(props) {
+     _classCallCheck(this, Yaxis);
+
+-    return _possibleConstructorReturn(this, Object.getPrototypeOf(Yaxis).call(this, props));
++    return _possibleConstructorReturn(this, (Yaxis.__proto__ || Object.getPrototypeOf(Yaxis)).call(this, props));
+   }
+
+   _createClass(Yaxis, [{
+     key: 'render',
+     value: function render() {
+-      var _props = this.props;
+-      var width = _props.width;
+-      var height = _props.height;
+-      var margins = _props.margins;
+-      var y = _props.y;
+-      var yAxisClassName = _props.yAxisClassName;
+-      var yDomain = _props.yDomain;
+-      var yRange = _props.yRange;
+-      var yBandPaddingInner = _props.yBandPaddingInner;
+-      var yBandPaddingOuter = _props.yBandPaddingOuter;
+-      var yScale = _props.yScale;
+-      var yOrient = _props.yOrient;
+-      var yTickOrient = _props.yTickOrient;
+-      var yTickFormat = _props.yTickFormat;
+-      var yTickPadding = _props.yTickPadding;
+-      var yTickSizeOuter = _props.yTickSizeOuter;
+-      var yTickSizeInner = _props.yTickSizeInner;
+-      var yTicks = _props.yTicks;
+-      var yLabel = _props.yLabel;
+-      var yLabelPosition = _props.yLabelPosition;
+-      var labelOffset = _props.labelOffset;
+-      var showYAxis = _props.showYAxis;
+-      var style = _props.style;
+-      var yAxisStyling = _props.yAxisStyling;
+-      var yTickValues = _props.yTickValues;
++      var _props = this.props,
++          width = _props.width,
++          height = _props.height,
++          margins = _props.margins,
++          y = _props.y,
++          yAxisClassName = _props.yAxisClassName,
++          yDomain = _props.yDomain,
++          yRange = _props.yRange,
++          yBandPaddingInner = _props.yBandPaddingInner,
++          yBandPaddingOuter = _props.yBandPaddingOuter,
++          yScale = _props.yScale,
++          yOrient = _props.yOrient,
++          yTickOrient = _props.yTickOrient,
++          yTickFormat = _props.yTickFormat,
++          yTickPadding = _props.yTickPadding,
++          yTickSizeOuter = _props.yTickSizeOuter,
++          yTickSizeInner = _props.yTickSizeInner,
++          yTicks = _props.yTicks,
++          yLabel = _props.yLabel,
++          yLabelPosition = _props.yLabelPosition,
++          labelOffset = _props.labelOffset,
++          showYAxis = _props.showYAxis,
++          style = _props.style,
++          yAxisStyling = _props.yAxisStyling,
++          yTickValues = _props.yTickValues;
+
+
+       var t;
+@@ -146,32 +150,32 @@ Yaxis.defaultProps = _extends({
+   yOuterTickSize: 6
+ }, _commonProps2.default);
+ Yaxis.propTypes = {
+-  height: _react.PropTypes.number.isRequired,
+-  width: _react.PropTypes.number.isRequired,
+-  margins: _react.PropTypes.object.isRequired,
+-  showYAxis: _react.PropTypes.bool,
+-  y: _react.PropTypes.func,
+-  yDomain: _react.PropTypes.array,
+-  yRange: _react.PropTypes.array,
+-  yScale: _react.PropTypes.string.isRequired,
+-  yOrient: _react.PropTypes.oneOf(['left', 'right']),
+-  yTickOrient: _react.PropTypes.oneOf(['left', 'right']),
+-  yAxisClassName: _react.PropTypes.string,
+-  yTickSizeInner: _react.PropTypes.number,
+-  yTickSizeOuter: _react.PropTypes.number,
+-  yBandPaddingInner: _react.PropTypes.number,
+-  yBandPaddingOuter: _react.PropTypes.number,
+-  yTickPadding: _react.PropTypes.number,
+-  yTickFormat: _react.PropTypes.func,
+-  yTicks: _react.PropTypes.array,
+-  style: _react.PropTypes.object,
++  height: _propTypes2.default.number.isRequired,
++  width: _propTypes2.default.number.isRequired,
++  margins: _propTypes2.default.object.isRequired,
++  showYAxis: _propTypes2.default.bool,
++  y: _propTypes2.default.func,
++  yDomain: _propTypes2.default.array,
++  yRange: _propTypes2.default.array,
++  yScale: _propTypes2.default.string.isRequired,
++  yOrient: _propTypes2.default.oneOf(['left', 'right']),
++  yTickOrient: _propTypes2.default.oneOf(['left', 'right']),
++  yAxisClassName: _propTypes2.default.string,
++  yTickSizeInner: _propTypes2.default.number,
++  yTickSizeOuter: _propTypes2.default.number,
++  yBandPaddingInner: _propTypes2.default.number,
++  yBandPaddingOuter: _propTypes2.default.number,
++  yTickPadding: _propTypes2.default.number,
++  yTickFormat: _propTypes2.default.func,
++  yTicks: _propTypes2.default.array,
++  style: _propTypes2.default.object,
+   /*
+    yAxisStyling object holds css styling classes for axis elements
+    pathClassName: "someCls"
+    ticksClassName: "someCls"
+    textClassName: "someCls"
+    */
+-  yAxisStyling: _react.PropTypes.object,
+-  yTickValues: _react.PropTypes.array
++  yAxisStyling: _propTypes2.default.object,
++  yTickValues: _propTypes2.default.array
+ };
+ exports.default = Yaxis;
+\ No newline at end of file
+diff --git a/lib/chartContainer.js b/lib/chartContainer.js
+index ee5792f43..0c078ae54 100644
+--- a/lib/chartContainer.js
++++ b/lib/chartContainer.js
+@@ -38,15 +38,15 @@ var ChartContainer = function (_Component) {
+   function ChartContainer(props) {
+     _classCallCheck(this, ChartContainer);
+
+-    return _possibleConstructorReturn(this, Object.getPrototypeOf(ChartContainer).call(this, props));
++    return _possibleConstructorReturn(this, (ChartContainer.__proto__ || Object.getPrototypeOf(ChartContainer)).call(this, props));
+   }
+
+   _createClass(ChartContainer, [{
+     key: 'render',
+     value: function render() {
+-      var _props = this.props;
+-      var width = _props.width;
+-      var chartSeries = _props.chartSeries;
++      var _props = this.props,
++          width = _props.width,
++          chartSeries = _props.chartSeries;
+
+
+       var legend;
+diff --git a/lib/container/svg.js b/lib/container/svg.js
+index 842d70867..ed1922424 100644
+--- a/lib/container/svg.js
++++ b/lib/container/svg.js
+@@ -12,6 +12,10 @@ var _react = require('react');
+
+ var _react2 = _interopRequireDefault(_react);
+
++var _propTypes = require('prop-types');
++
++var _propTypes2 = _interopRequireDefault(_propTypes);
++
+ var _commonProps = require('../commonProps');
+
+ var _commonProps2 = _interopRequireDefault(_commonProps);
+@@ -32,19 +36,19 @@ var ChartSvg = function (_Component) {
+   function ChartSvg(props) {
+     _classCallCheck(this, ChartSvg);
+
+-    return _possibleConstructorReturn(this, Object.getPrototypeOf(ChartSvg).call(this, props));
++    return _possibleConstructorReturn(this, (ChartSvg.__proto__ || Object.getPrototypeOf(ChartSvg)).call(this, props));
+   }
+
+   _createClass(ChartSvg, [{
+     key: 'render',
+     value: function render() {
+-      var _props = this.props;
+-      var height = _props.height;
+-      var width = _props.width;
+-      var margins = _props.margins;
+-      var svgClassName = _props.svgClassName;
+-      var id = _props.id;
+-      var children = _props.children;
++      var _props = this.props,
++          height = _props.height,
++          width = _props.width,
++          margins = _props.margins,
++          svgClassName = _props.svgClassName,
++          id = _props.id,
++          children = _props.children;
+
+
+       var t = 'translate(' + margins.left + ', ' + margins.top + ')';
+@@ -78,10 +82,10 @@ ChartSvg.defaultProps = _extends({
+   scaleExtent: [1, 10]
+ }, _commonProps2.default);
+ ChartSvg.propTypes = {
+-  id: _react.PropTypes.string,
+-  width: _react.PropTypes.number.isRequired,
+-  height: _react.PropTypes.number.isRequired,
+-  margins: _react.PropTypes.object.isRequired,
+-  svgClassName: _react.PropTypes.string.isRequired
++  id: _propTypes2.default.string,
++  width: _propTypes2.default.number.isRequired,
++  height: _propTypes2.default.number.isRequired,
++  margins: _propTypes2.default.object.isRequired,
++  svgClassName: _propTypes2.default.string.isRequired
+ };
+ exports.default = ChartSvg;
+\ No newline at end of file
+diff --git a/lib/container/title.js b/lib/container/title.js
+index 6be6b303e..f8b37493a 100644
+--- a/lib/container/title.js
++++ b/lib/container/title.js
+@@ -12,6 +12,10 @@ var _react = require('react');
+
+ var _react2 = _interopRequireDefault(_react);
+
++var _propTypes = require('prop-types');
++
++var _propTypes2 = _interopRequireDefault(_propTypes);
++
+ var _commonProps = require('../commonProps');
+
+ var _commonProps2 = _interopRequireDefault(_commonProps);
+@@ -30,16 +34,16 @@ var ChartTitle = function (_Component) {
+   function ChartTitle(props) {
+     _classCallCheck(this, ChartTitle);
+
+-    return _possibleConstructorReturn(this, Object.getPrototypeOf(ChartTitle).call(this, props));
++    return _possibleConstructorReturn(this, (ChartTitle.__proto__ || Object.getPrototypeOf(ChartTitle)).call(this, props));
+   }
+
+   _createClass(ChartTitle, [{
+     key: 'render',
+     value: function render() {
+-      var _props = this.props;
+-      var titleClassName = _props.titleClassName;
+-      var title = _props.title;
+-      var width = _props.width;
++      var _props = this.props,
++          titleClassName = _props.titleClassName,
++          title = _props.title,
++          width = _props.width;
+
+
+       var titleStyle = {
+@@ -68,8 +72,8 @@ ChartTitle.defaultProps = _extends({
+   title: ''
+ }, _commonProps2.default);
+ ChartTitle.propTypes = {
+-  width: _react.PropTypes.number.isRequired,
+-  title: _react.PropTypes.string,
+-  titleClassName: _react.PropTypes.string
++  width: _propTypes2.default.number.isRequired,
++  title: _propTypes2.default.string,
++  titleClassName: _propTypes2.default.string
+ };
+ exports.default = ChartTitle;
+\ No newline at end of file
+diff --git a/lib/grid/grid.js b/lib/grid/grid.js
+index e9ca117b5..e8b2ef7f2 100644
+--- a/lib/grid/grid.js
++++ b/lib/grid/grid.js
+@@ -12,6 +12,10 @@ var _react = require('react');
+
+ var _react2 = _interopRequireDefault(_react);
+
++var _propTypes = require('prop-types');
++
++var _propTypes2 = _interopRequireDefault(_propTypes);
++
+ var _axis = require('../axis/axis');
+
+ var _axis2 = _interopRequireDefault(_axis);
+@@ -34,36 +38,36 @@ var Grid = function (_Component) {
+   function Grid(props) {
+     _classCallCheck(this, Grid);
+
+-    return _possibleConstructorReturn(this, Object.getPrototypeOf(Grid).call(this, props));
++    return _possibleConstructorReturn(this, (Grid.__proto__ || Object.getPrototypeOf(Grid)).call(this, props));
+   }
+
+   _createClass(Grid, [{
+     key: 'render',
+     value: function render() {
+-      var _props = this.props;
+-      var height = _props.height;
+-      var width = _props.width;
+-      var margins = _props.margins;
+-      var type = _props.type;
+-      var gridAxisClassName = _props.gridAxisClassName;
+-      var xBandPaddingInner = _props.xBandPaddingInner;
+-      var xBandPaddingOuter = _props.xBandPaddingOuter;
+-      var x = _props.x;
+-      var xDomain = _props.xDomain;
+-      var xRange = _props.xRange;
+-      var xScale = _props.xScale;
+-      var xGridCount = _props.xGridCount;
+-      var xGridStyleClassName = _props.xGridStyleClassName;
+-      var yBandPaddingInner = _props.yBandPaddingInner;
+-      var yBandPaddingOuter = _props.yBandPaddingOuter;
+-      var y = _props.y;
+-      var yDomain = _props.yDomain;
+-      var yRange = _props.yRange;
+-      var yScale = _props.yScale;
+-      var yGridCount = _props.yGridCount;
+-      var yGridStyleClassName = _props.yGridStyleClassName;
+-      var xTickValues = _props.xTickValues;
+-      var yTickValues = _props.yTickValues;
++      var _props = this.props,
++          height = _props.height,
++          width = _props.width,
++          margins = _props.margins,
++          type = _props.type,
++          gridAxisClassName = _props.gridAxisClassName,
++          xBandPaddingInner = _props.xBandPaddingInner,
++          xBandPaddingOuter = _props.xBandPaddingOuter,
++          x = _props.x,
++          xDomain = _props.xDomain,
++          xRange = _props.xRange,
++          xScale = _props.xScale,
++          xGridCount = _props.xGridCount,
++          xGridStyleClassName = _props.xGridStyleClassName,
++          yBandPaddingInner = _props.yBandPaddingInner,
++          yBandPaddingOuter = _props.yBandPaddingOuter,
++          y = _props.y,
++          yDomain = _props.yDomain,
++          yRange = _props.yRange,
++          yScale = _props.yScale,
++          yGridCount = _props.yGridCount,
++          yGridStyleClassName = _props.yGridStyleClassName,
++          xTickValues = _props.xTickValues,
++          yTickValues = _props.yTickValues;
+
+
+       var gridAxis;
+@@ -151,27 +155,27 @@ Grid.defaultProps = _extends({
+   gridAxisClassName: 'react-d3-core__grid_axis'
+ }, _commonProps2.default);
+ Grid.propTypes = {
+-  height: _react.PropTypes.number.isRequired,
+-  width: _react.PropTypes.number.isRequired,
+-  margins: _react.PropTypes.object.isRequired,
+-  type: _react.PropTypes.oneOf(['x', 'y']).isRequired,
+-  gridAxisClassName: _react.PropTypes.string,
+-  x: _react.PropTypes.func,
+-  xDomain: _react.PropTypes.array,
+-  xRange: _react.PropTypes.array,
+-  xScale: _react.PropTypes.oneOf(['linear', 'identity', 'sqrt', 'pow', 'log', 'quantize', 'quantile', 'ordinal', 'time']).isRequired,
+-  xBandPaddingInner: _react.PropTypes.number,
+-  xBandPaddingOuter: _react.PropTypes.number,
+-  y: _react.PropTypes.func,
+-  yDomain: _react.PropTypes.array,
+-  yRange: _react.PropTypes.array,
+-  yScale: _react.PropTypes.oneOf(['linear', 'identity', 'sqrt', 'pow', 'log', 'quantize', 'quantile', 'ordinal', 'time']).isRequired,
+-  yBandPaddingInner: _react.PropTypes.number,
+-  yBandPaddingOuter: _react.PropTypes.number,
+-  xGridCount: _react.PropTypes.array,
+-  yGridCount: _react.PropTypes.array,
+-  xGridStyleClassName: _react.PropTypes.string,
+-  yGridStyleClassName: _react.PropTypes.string,
+-  xTickValues: _react.PropTypes.array
++  height: _propTypes2.default.number.isRequired,
++  width: _propTypes2.default.number.isRequired,
++  margins: _propTypes2.default.object.isRequired,
++  type: _propTypes2.default.oneOf(['x', 'y']).isRequired,
++  gridAxisClassName: _propTypes2.default.string,
++  x: _propTypes2.default.func,
++  xDomain: _propTypes2.default.array,
++  xRange: _propTypes2.default.array,
++  xScale: _propTypes2.default.oneOf(['linear', 'identity', 'sqrt', 'pow', 'log', 'quantize', 'quantile', 'ordinal', 'time']).isRequired,
++  xBandPaddingInner: _propTypes2.default.number,
++  xBandPaddingOuter: _propTypes2.default.number,
++  y: _propTypes2.default.func,
++  yDomain: _propTypes2.default.array,
++  yRange: _propTypes2.default.array,
++  yScale: _propTypes2.default.oneOf(['linear', 'identity', 'sqrt', 'pow', 'log', 'quantize', 'quantile', 'ordinal', 'time']).isRequired,
++  yBandPaddingInner: _propTypes2.default.number,
++  yBandPaddingOuter: _propTypes2.default.number,
++  xGridCount: _propTypes2.default.array,
++  yGridCount: _propTypes2.default.array,
++  xGridStyleClassName: _propTypes2.default.string,
++  yGridStyleClassName: _propTypes2.default.string,
++  xTickValues: _propTypes2.default.array
+ };
+ exports.default = Grid;
+\ No newline at end of file
+diff --git a/lib/grid/xgrid.js b/lib/grid/xgrid.js
+index f9a9f0924..f3bf121a1 100644
+--- a/lib/grid/xgrid.js
++++ b/lib/grid/xgrid.js
+@@ -30,7 +30,7 @@ var XGrid = function (_Component) {
+   function XGrid(props) {
+     _classCallCheck(this, XGrid);
+
+-    return _possibleConstructorReturn(this, Object.getPrototypeOf(XGrid).call(this, props));
++    return _possibleConstructorReturn(this, (XGrid.__proto__ || Object.getPrototypeOf(XGrid)).call(this, props));
+   }
+
+   _createClass(XGrid, [{
+diff --git a/lib/grid/ygrid.js b/lib/grid/ygrid.js
+index cd3873c6d..4ebdfed6b 100644
+--- a/lib/grid/ygrid.js
++++ b/lib/grid/ygrid.js
+@@ -30,7 +30,7 @@ var YGrid = function (_Component) {
+   function YGrid(props) {
+     _classCallCheck(this, YGrid);
+
+-    return _possibleConstructorReturn(this, Object.getPrototypeOf(YGrid).call(this, props));
++    return _possibleConstructorReturn(this, (YGrid.__proto__ || Object.getPrototypeOf(YGrid)).call(this, props));
+   }
+
+   _createClass(YGrid, [{
+diff --git a/lib/legend.js b/lib/legend.js
+index 41deb8232..cc3c6128c 100644
+--- a/lib/legend.js
++++ b/lib/legend.js
+@@ -12,6 +12,10 @@ var _react = require('react');
+
+ var _react2 = _interopRequireDefault(_react);
+
++var _propTypes = require('prop-types');
++
++var _propTypes2 = _interopRequireDefault(_propTypes);
++
+ var _d3Selection = require('d3-selection');
+
+ var _d3Selection2 = _interopRequireDefault(_d3Selection);
+@@ -42,7 +46,7 @@ var Legend = function (_Component) {
+   function Legend(props) {
+     _classCallCheck(this, Legend);
+
+-    return _possibleConstructorReturn(this, Object.getPrototypeOf(Legend).call(this, props));
++    return _possibleConstructorReturn(this, (Legend.__proto__ || Object.getPrototypeOf(Legend)).call(this, props));
+   }
+
+   _createClass(Legend, [{
+@@ -53,16 +57,16 @@ var Legend = function (_Component) {
+   }, {
+     key: '_series',
+     value: function _series(props) {
+-      var chartSeries = props.chartSeries;
+-      var categoricalColors = props.categoricalColors;
++      var chartSeries = props.chartSeries,
++          categoricalColors = props.categoricalColors;
+
+
+       var colors = categoricalColors || _d3Scale2.default.scaleCategory10();
+
+       return chartSeries.map(function (_ref, i) {
+-        var name = _ref.name;
+-        var color = _ref.color;
+-        var field = _ref.field;
++        var name = _ref.name,
++            color = _ref.color,
++            field = _ref.field;
+         return {
+           color: color || colors(i),
+           name: name || field,
+@@ -73,15 +77,15 @@ var Legend = function (_Component) {
+   }, {
+     key: '_mkLegend',
+     value: function _mkLegend(dom) {
+-      var _props = this.props;
+-      var legendClassName = _props.legendClassName;
+-      var backgroundColor = _props.backgroundColor;
+-      var legendPosition = _props.legendPosition;
+-      var legendOffset = _props.legendOffset;
+-      var swatchShape = _props.swatchShape;
+-      var chartSeries = _props.chartSeries;
+-      var margins = _props.margins;
+-      var width = _props.width;
++      var _props = this.props,
++          legendClassName = _props.legendClassName,
++          backgroundColor = _props.backgroundColor,
++          legendPosition = _props.legendPosition,
++          legendOffset = _props.legendOffset,
++          swatchShape = _props.swatchShape,
++          chartSeries = _props.chartSeries,
++          margins = _props.margins,
++          width = _props.width;
+
+
+       var legendArea = _d3Selection2.default.select(dom);
+@@ -104,10 +108,10 @@ var Legend = function (_Component) {
+   }, {
+     key: 'render',
+     value: function render() {
+-      var _props2 = this.props;
+-      var legendClassName = _props2.legendClassName;
+-      var width = _props2.width;
+-      var height = _props2.height;
++      var _props2 = this.props,
++          legendClassName = _props2.legendClassName,
++          width = _props2.width,
++          height = _props2.height;
+
+
+       var legendGroup = _reactFauxDom2.default.createElement('div');
+@@ -133,13 +137,13 @@ Legend.defaultProps = _extends({
+   swatchShape: 'square'
+ }, _commonProps2.default);
+ Legend.propTypes = {
+-  backgroundColor: _react.PropTypes.string,
+-  width: _react.PropTypes.number.isRequired,
+-  margins: _react.PropTypes.object.isRequired,
+-  chartSeries: _react.PropTypes.array.isRequired,
+-  legendOffset: _react.PropTypes.number.isRequired,
+-  legendClassName: _react.PropTypes.string.isRequired,
+-  legendPosition: _react.PropTypes.oneOf(['left', 'right']).isRequired,
+-  swatchShape: _react.PropTypes.oneOf(['circle', 'square'])
++  backgroundColor: _propTypes2.default.string,
++  width: _propTypes2.default.number.isRequired,
++  margins: _propTypes2.default.object.isRequired,
++  chartSeries: _propTypes2.default.array.isRequired,
++  legendOffset: _propTypes2.default.number.isRequired,
++  legendClassName: _propTypes2.default.string.isRequired,
++  legendPosition: _propTypes2.default.oneOf(['left', 'right']).isRequired,
++  swatchShape: _propTypes2.default.oneOf(['circle', 'square'])
+ };
+ exports.default = Legend;
+\ No newline at end of file
+diff --git a/lib/utils/scale.js b/lib/utils/scale.js
+index 1513dbb00..052ef6161 100644
+--- a/lib/utils/scale.js
++++ b/lib/utils/scale.js
+@@ -12,8 +12,8 @@ var _d3Scale2 = _interopRequireDefault(_d3Scale);
+ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+ function scale(props) {
+-  var type = props.type;
+-  var scale = props.scale;
++  var type = props.type,
++      scale = props.scale;
+
+
+   var func;
+@@ -26,12 +26,12 @@ function scale(props) {
+ }
+
+ function _mkScaleSettings(props, func) {
+-  var type = props.type;
+-  var range = props.range;
+-  var domain = props.domain;
+-  var scale = props.scale;
+-  var bandPaddingInner = props.bandPaddingInner;
+-  var bandPaddingOuter = props.bandPaddingOuter;
++  var type = props.type,
++      range = props.range,
++      domain = props.domain,
++      scale = props.scale,
++      bandPaddingInner = props.bandPaddingInner,
++      bandPaddingOuter = props.bandPaddingOuter;
+
+
+   if (range) func.range(range);
+diff --git a/lib/utils/xDomain.js b/lib/utils/xDomain.js
+index dad74c3fa..171dd14f2 100644
+--- a/lib/utils/xDomain.js
++++ b/lib/utils/xDomain.js
+@@ -12,11 +12,11 @@ var _d3Array2 = _interopRequireDefault(_d3Array);
+ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+ function xDomain(props, stack, horizonal) {
+-  var data = props.data;
+-  var chartSeries = props.chartSeries;
+-  var x = props.x;
+-  var xScale = props.xScale;
+-  var xDomain = props.xDomain;
++  var data = props.data,
++      chartSeries = props.chartSeries,
++      x = props.x,
++      xScale = props.xScale,
++      xDomain = props.xDomain;
+
+
+   if (xDomain) return xDomain;
+diff --git a/lib/utils/yDomain.js b/lib/utils/yDomain.js
+index 7fd679110..6520eecb6 100644
+--- a/lib/utils/yDomain.js
++++ b/lib/utils/yDomain.js
+@@ -12,11 +12,11 @@ var _d3Array2 = _interopRequireDefault(_d3Array);
+ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+ function yDomain(props, stack, horizonal) {
+-  var data = props.data;
+-  var chartSeries = props.chartSeries;
+-  var y = props.y;
+-  var yDomain = props.yDomain;
+-  var yScale = props.yScale;
++  var data = props.data,
++      chartSeries = props.chartSeries,
++      y = props.y,
++      yDomain = props.yDomain,
++      yScale = props.yScale;
+
+
+   if (yDomain) return yDomain;
+diff --git a/package.json b/package.json
+index bd6cde59f..79dc70519 100644
+--- a/package.json
++++ b/package.json
+@@ -45,9 +45,7 @@
+     "webpack": "^1.12.2",
+     "webpack-dev-middleware": "^1.5.1",
+     "webpack-dev-server": "^1.11.0",
+-    "webpack-hot-middleware": "^2.9.1"
+-  },
+-  "peerDependencies": {
++    "webpack-hot-middleware": "^2.9.1",
+     "react": "^0.14.7",
+     "react-dom": "^0.14.7"
+   },
